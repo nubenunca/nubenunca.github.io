@@ -1,24 +1,22 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <script>
-    document.addEventListener("DOMContentLoaded", function(){
-      var xhr = new XMLHttpRequest();
-        var url ="https://pokeapi.co/api/v2/pokemon/pikachu/" 
-      xhr.open("GET", url, true);
-      xhr.onreadystatechange = function(){
-        if(xhr.readyState === 4 && xhr.status === 200){
-          document.getElementById("div1").innerHTML = xhr.responseText;
-        }
+  <head>
+    <title>Ejemplo de AJAX con Fetch</title>
+  </head>
+  <body>
+    <h1>Datos de la API</h1>
+    <div id="data-container"></div>
+    <script>
+      function getApiData() {
+        fetch("https://pokeapi.co/api/v2/pokemon/pikachu/")
+          .then((response) => response.json())
+          .then((data) => {
+            const container = document.getElementById("data-container");
+            container.innerHTML = `<p>Titulo: ${JSON.stringify(data)}</p>`;
+          })
+          .catch((error) => console.log(error));
       }
-      xhr.send();
-    });
-  </script>
-</head>
-<body>
-
-<div id="div1"><h2>Let XMLHttpRequest AJAX Change This Text</h2></div>
-
-</body>
+      document.addEventListener("DOMContentLoaded", getApiData);
+    </script>
+  </body>
 </html>
-
