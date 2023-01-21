@@ -1,16 +1,35 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>Ejemplo de AJAX con Fetch y Async/Await</title>
+  </head>
   <body>
-    <div id="container"></div>
+    <h1 id="pikachuName"></h1>
+    <h1 id="peso"></h1>
+
+    <img id="image" src="" alt="" />
     <script>
-      async function getApiData() {
-        const url = "https://pokeapi.co/api/v2/pokemon/pikachu/";
-        const response = await fetch(url);
-        const data = await response.json();
-        const container = document.getElementById("container");
-        container.innerHTML = JSON.stringify(data);
+      async function getApiImage() {
+        try {
+          const response = await fetch(
+            "https://pokeapi.co/api/v2/pokemon/pikachu/"
+          );
+          const data = await response.json();
+          const image = document.getElementById("image");
+          image.src = data.sprites.back_default;
+          image.alt = data.name;
+
+          const name = document.getElementById("pikachuName");
+          name.innerHTML = data.name;
+
+          const peso = document.getElementById("peso");
+          peso.innerHTML = data.weight;
+        } catch (error) {
+          console.log(error);
+        }
       }
-      document.addEventListener("DOMContentLoaded", getApiData);
+
+      document.addEventListener("DOMContentLoaded", getApiImage);
     </script>
   </body>
 </html>
