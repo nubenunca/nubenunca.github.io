@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href="style.css" rel="stylesheet" type="text/css" />
+    <title>Ejemplo de AJAX con jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
   <body>
-    <input id="initializer" placeholder="add initial value here"></input>
-    <button>increase</button>
-    <button id="decrease">Decrease</button>
-    <button id="restart">Restart</button>
-    <button id="hundred">start at 100</button>
-    <h1 id="counter">0</h1>
-    <script src="counter.js"></script>
+    <div id="data-container"></div>
+    <script>
+      function getApiData() {
+        $.ajax({
+          url: "https://pokeapi.co/api/v2/pokemon/pikachu",
+          method: "GET",
+        }).done(function (data) {
+          $("#data-container").html(`<p>Nombre: ${data.name}</p>`);
+        });
+      }
+
+      $(document).ready(getApiData);
+    </script>
   </body>
 </html>
