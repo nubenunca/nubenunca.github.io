@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Ejemplo de AJAX con jQuery</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  </head>
-  <body>
-    <div id="data-container"></div>
-    <script>
-      function getApiData() {
-        $.ajax({
-          url: "https://pokeapi.co/api/v2/pokemon/pikachu",
-          method: "GET",
-        }).done(function (data) {
-          $("#data-container").html(`<p>Nombre: ${data.name}</p>`);
-        });
+<head>
+  <script>
+    document.addEventListener("DOMContentLoaded", function(){
+      var xhr = new XMLHttpRequest();
+        var url ="https://pokeapi.co/api/v2/pokemon/pikachu/" 
+      xhr.open("GET", url, true);
+      xhr.onreadystatechange = function(){
+        if(xhr.readyState === 4 && xhr.status === 200){
+          document.getElementById("div1").innerHTML = xhr.responseText;
+        }
       }
+      xhr.send();
+    });
+  </script>
+</head>
+<body>
 
-      $(document).ready(getApiData);
-    </script>
-  </body>
+<div id="div1"><h2>Let XMLHttpRequest AJAX Change This Text</h2></div>
+
+</body>
 </html>
+
