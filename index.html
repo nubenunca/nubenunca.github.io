@@ -1,20 +1,14 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Ejemplo de AJAX con Fetch</title>
-  </head>
   <body>
-    <h1>Datos de la API</h1>
-    <div id="data-container"></div>
+    <div id="container"></div>
     <script>
-      function getApiData() {
-        fetch("https://pokeapi.co/api/v2/pokemon/pikachu/")
-          .then((response) => response.json())
-          .then((data) => {
-            const container = document.getElementById("data-container");
-            container.innerHTML = `<p>Titulo: ${JSON.stringify(data)}</p>`;
-          })
-          .catch((error) => console.log(error));
+      async function getApiData() {
+        const url = "https://pokeapi.co/api/v2/pokemon/pikachu/";
+        const response = await fetch(url);
+        const data = await response.json();
+        const container = document.getElementById("container");
+        container.innerHTML = JSON.stringify(data);
       }
       document.addEventListener("DOMContentLoaded", getApiData);
     </script>
