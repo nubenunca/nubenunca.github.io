@@ -1,34 +1,74 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Mi página web</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #f2f2f2;
-      }
-      
-      header {
-        background-color: #333;
-        color: white;
-        padding: 20px;
-      }
-      
-      h1 {
-        margin: 0;
-      }
-      
-      p {
-        font-size: 18px;
-        line-height: 1.5;
-        padding: 20px;
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <h1>Bienvenidos a mi página web</h1>
-    </header>
-    <p>¡Hola a todos! Esta es mi primera página web. Aquí podrás encontrar información sobre mis intereses y hobbies.</p>
-  </body>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Dolly - Aplicación de fotos</title>
+	<style>
+		.logo {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background-color: yellow;
+			color: white;
+			font-size: 30px;
+			height: 100px;
+			width: 100%;
+			font-weight: bold;
+			text-transform: uppercase;
+			letter-spacing: 2px;
+		}
+		
+		.container {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: center;
+			padding: 20px;
+		}
+		
+		.photo {
+			margin: 10px;
+			width: 250px;
+			height: 250px;
+			object-fit: cover;
+		}
+		
+		.color {
+			filter: grayscale(0%);
+		}
+		
+		.bw {
+			filter: grayscale(100%);
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<div class="logo">
+			Foto Dolly
+		</div>
+	</header>
+	<main>
+		<section>
+			<h1>Fotos en blanco y negro</h1>
+			<div class="container">
+				<!-- Aquí se mostrarían las 50 fotos en blanco y negro -->
+				<img src="foto1-bw.jpg" alt="Foto en blanco y negro" class="photo bw">
+				<img src="foto2-bw.jpg" alt="Foto en blanco y negro" class="photo bw">
+				<img src="foto3-bw.jpg" alt="Foto en blanco y negro" class="photo bw">
+				<!-- ... y así sucesivamente hasta completar las 50 fotos -->
+			</div>
+		</section>
+		<section>
+			<h1>Fotos en color</h1>
+			<div class="container">
+				<!-- Aquí se mostrarían las 50 fotos en color -->
+				<img src="foto1-color.jpg" alt="Foto en color" class="photo color">
+				<img src="foto2-color.jpg" alt="Foto en color" class="photo color">
+				<img src="foto3-color.jpg" alt="Foto en color" class="photo color">
+				<!-- ... y así sucesivamente hasta completar las 50 fotos -->
+			</div>
+		</section>
+	</main>
+</body>
 </html>
