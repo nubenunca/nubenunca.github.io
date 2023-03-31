@@ -1,149 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Ejemplo de AJAX con Fetch y Async/Await</title>
+    <title>Título de la página</title>
   </head>
   <body>
-    <p>ensayo formulario</p>
-    <form id="form-order">
-      <p>
-        <label form="name"> nombre (obligatorio)</label>
-        <input
-          type="text"
-          name="name"
-          id="name"
-          placeholder="Marylin Restrepo"
-          autofocus
-          autocomplete="additional-name"
-          required
-        />
-      </p>
-
-      <p>
-        <label form="passwd"> contraseña (obligatorio)</label>
-        <input
-          type="password"
-          name="passwd"
-          id="passwd"
-          placeholder="12345m"
-          pattern="[a-z] {3} [0-9] {4}"
-          required
-        />
-        (la contraseña debe contener 3 letras y 4 números)
-      </p>
-
-      <p>
-        <label for="phone"> teléfono</label>
-        <input
-          type="tel"
-          name="phone"
-          id="phone"
-          placeholder="+57"
-          3505711665
-        />
-      </p>
-
-      <p>
-        <label for="email"> email</label>
-        <input
-          type="email"
-          name="email"
-          id="email"
-          placeholder="ejemplo@mail.com"
-        />
-      </p>
-
-      <p>
-        <label for="website"> website</label>
-        <input
-          type="url"
-          name="website"
-          id="website"
-          placeholder="http://www.tuweb.com"
-        />
-      </p>
-
-      <p>
-        <label for="numberxample"> N° de temas</label>
-        <input
-          type="number"
-          name="numberxample"
-          id="numberxample"
-          min="2"
-          max="14"
-          placeholder="2"
-          step="2"
-        />
-        (entre 2 y 14, solo pares)
-      </p>
-
-      <p>
-        <label for="deliverydate"> fecha de envío</label>
-        <input
-          type="date"
-          name="deliverydate"
-          id="deliverydate"
-          min="2012-07-16"
-        />
-        (mínimo 16 de julio de 2012)
-      </p>
-
-      <p>
-        <label for="colorexample"> color del ítem </label>
-        <input
-          type="color"
-          name="colorexample"
-          id="colorexample"
-          value="#1A33FF"
-        />
-      </p>
-
-      <p>
-        <label for="search"> buscar </label>
-        <input type="search" name="search" id="search" />
-      </p>
-
-      <p>
-        <label for="points"> Rango de valores </label>
-        <input type="range" name="points" id="points" min="1" max="10" /> (enre
-        1 y 10)
-      </p>
-
-      <input type="submit" value="enviar" />
-    </form>
-    <script>
-      async function getApiImage() {
-        try {
-          const pokemonName = "pikachu";
-          const base_url = "https://pokeapi.co/api/v2";
-          const response = await fetch(`${base_url}/pokemon/${pokemonName}/`);
-          const pokemonData = await response.json();
-          const pokemonElement = addPokemon(pokemonData);
-          document.body.appendChild(pokemonElement);
-
-          function addPokemon(pokemon) {
-            const newPokemon = document.createElement("div");
-            newPokemon.innerHTML = `
-                      <div id=${"pokemon"}>
-                        <h1>${pokemon.name}</h1>
-                        <image 
-                          src=${pokemon.sprites.front_default} 
-                          alt=${pokemon.name}>
-                        </image>
-                        <ol>
-                          <li>name</li> 
-                          <li>weight</li>
-                        </ol>
-                      </div>
-                      `;
-            return newPokemon;
-          }
-        } catch (error) {
-          console.log(error);
-        }
-      }
-
-      document.addEventListener("DOMContentLoaded", getApiImage);
-    </script>
+    <header>
+      <h1>Encabezado de la página</h1>
+    </header>
+    <main>
+      <p>Este es un párrafo de ejemplo.</p>
+    </main>
   </body>
 </html>
+
